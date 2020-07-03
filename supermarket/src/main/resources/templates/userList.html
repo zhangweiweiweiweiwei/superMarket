@@ -2,6 +2,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>超市账单管理系统-用户管理</title>
 <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+	<script type="text/javascript" th:src="@{/js/jquery-1.8.3.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/vue.js}"></script>
 </head>
 <body>
 	<div class="menu">
@@ -42,32 +44,39 @@
 						<td width="150"><div class="STYLE1" align="center">权限</div>
 						</td>
 					</tr>
-					<tr th:each="userss:${users}">
-						<td height="23"><span class="STYLE1" th:text="${userss.id}">-1</span>
-						</td>
-						<td><span class="STYLE1"><a th:href="@{/user/toUserView/}+${userss.id}"> [[${userss.userName}]]</a>
-						</span>
-						</td>
-						<td><span class="STYLE1" th:text="${userss.userCode}"> 管理员 </span>
-						</td>
-						<td><span class="STYLE1" th:text="${userss.gender}==1?'男':'女'">
-							男
-						</span>
-						</td>
-						<td><span class="STYLE1" th:text="${#dates.format(userss.birthday, 'yyyy-MM-dd')}">2014-10-10</span>
-						</td>
-						<td><span class="STYLE1" th:text="${userss.phone}">323232</span>
+					<tr th:each="users:${users}">
+						<td height="23">
+							<span class="STYLE1" th:text="${users.id}">-1</span>
 						</td>
 						<td>
-							<span class="STYLE1" th:text="${userss.userType}">
-							管理员
-					     </span>
+							<span class="STYLE1" th:text="${users.userName}"> 管理员 </span>
 						</td>
+						<td>
+							<span class="STYLE1"><a th:href="@{/user/toUserView/}+${users.id}"> [[${users.userCode}]]</a></span>
+						</td>
+						<td>
+							<span class="STYLE1" th:text="${users.gender}==1?'男':'女'"></span>
+						</td>
+                       		<td ><span class="STYLE1" th:id="${users.id}"></span></td>
+<!--使用footer宣告失败		<td id="footer"><span class="STYLE1" id="old"></span></td>-->
+<!--	                    <div th:insert="~{userList :: #footer}"></div>-->
+						<td>
+							<span class="STYLE1" th:text="${users.phone}">323232</span>
+						</td>
+						<td>
+							<span th:if="${users.userType} == 1">管理员</span>
+							<span th:if="${users.userType} == 2">普通人员</span>
+							<span th:if="${users.userType} == 3">经理</span>
+						</td>
+						<td hidden><span th:id="year1+${users.id}" class="STYLE1" th:text="${#dates.createNow()}"></span></td>
+						<td hidden><span th:id="year2+${users.id}" class="STYLE1" th:text="${users.birthday}"></span></td>
+						<td hidden><span id="length" th:text="${length}"></span></td>
 					</tr>
 				</tbody>
 			</table>
+
 		</div>
 	</div>
-
+	<script type="text/javascript" th:src="@{/js/user/list.js}"></script>
 </body>
 </html>

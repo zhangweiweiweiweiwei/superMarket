@@ -43,9 +43,11 @@ public class UserController {
 
 //      用户控制界面（显示用户信息）
     @RequestMapping("/list")
-    public String userPage(Model model){
+    public String userPage(Model model,Model model2){
         List<User> users = userService.findAll();
         model.addAttribute("users",users);
+        //System.out.println(users.size());
+        model2.addAttribute("length",users.size());
         return "userList";
     }
 

@@ -10,7 +10,8 @@
 		</div>
 			<div class="content">
 				<table class="box"> 
-					<tbody><tr>
+					<tbody>
+					<tr>
 						<td class="field">用户编号：</td>
 						<td>1<input type="hidden" id="userId" th:value="${user.id}"></td>
 						
@@ -24,13 +25,14 @@
 						<td class="field" >用户性别：</td>
 						<td th:text="${user.gender}==1?'男':'女'"></td>
 					</tr>
+
 					<tr>
 						<td class="field">出生日期：</td>
 						<td><span class="STYLE1" th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}">2014-10-10</span>
 					</tr>
 					<tr>
 						<td class="field">用户年龄：</td>
-						<td><span class="STYLE1" th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}">2014-10-10</span>
+						<td id="old"></td>
 					</tr>
 					<tr>
 						<td class="field">用户电话：</td>
@@ -48,11 +50,23 @@
 
 						<td>
 
-							[[${user.userType}]]
+							<span th:if="${user.userType} == 1">
+								管理员
+							</span>
+							<span th:if="${user.userType} == 2">
+								普通人员
+							</span>
+							<span th:if="${user.userType} == 3">
+								经理
+							</span>
 							
 						</td>
 					</tr>
-				</tbody></table>
+					<td hidden><span id="year1" class="STYLE1" th:text="${#dates.createNow()}"></span></td>
+					<td hidden><span id="year2" class="STYLE1" th:text="${user.birthday}"></span></td>
+				</tbody>
+				</table>
+
 			</div>
 			<div class="buttons">
 				<input type="button" id="update" value="修改" class="input-button">

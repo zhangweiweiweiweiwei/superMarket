@@ -32,7 +32,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,7 +46,9 @@
       <recent name="com.whpu.utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\java\zhongruanguoji\supermarket\src\main\resources\static" />
       <recent name="C:\Users\Administrator\Desktop\java\zhongruanguoji\supermarket\src\main\resources\templates" />
+      <recent name="C:\Users\Administrator\Desktop\java\zhongruanguoji\supermarket\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -82,7 +84,8 @@
       <updated>1593646396836</updated>
       <workItem from="1593646405002" duration="228000" />
       <workItem from="1593646697327" duration="41507000" />
-      <workItem from="1593729498176" duration="21828000" />
+      <workItem from="1593729498176" duration="22659000" />
+      <workItem from="1593769654736" duration="8731000" />
     </task>
     <servers />
   </component>

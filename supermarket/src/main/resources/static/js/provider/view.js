@@ -3,8 +3,6 @@ $("#update").bind("click",function(){
 	var proId=$("#proId").val();
 	window.location="/provider/toProviderUpdate/"+proId;
 });
-
-
 //删除
 $("#del").bind("click",function(){
 	var proId=$("#proId").val();

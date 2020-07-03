@@ -1,3 +1,4 @@
+
 //修改密码
 $("#update").bind("click",function(){
 	var userId=$("#userId").val();
