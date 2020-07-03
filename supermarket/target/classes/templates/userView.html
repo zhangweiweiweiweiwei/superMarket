@@ -1,0 +1,67 @@
+﻿<html xmlns:th="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+<script type="text/javascript" th:src="@{/js/jquery-1.8.3.min.js}"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="optitle clearfix">
+			<div class="title">用户管理&gt;&gt;</div>
+		</div>
+			<div class="content">
+				<table class="box"> 
+					<tbody><tr>
+						<td class="field">用户编号：</td>
+						<td>1<input type="hidden" id="userId" th:value="${user.id}"></td>
+						
+					</tr>
+					<tr>
+						<td class="field">用户名：</td>
+						<td>[[${user.userName}]]</td>
+					</tr>
+
+					<tr>
+						<td class="field" >用户性别：</td>
+						<td th:text="${user.gender}==1?'男':'女'"></td>
+					</tr>
+					<tr>
+						<td class="field">出生日期：</td>
+						<td><span class="STYLE1" th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}">2014-10-10</span>
+					</tr>
+					<tr>
+						<td class="field">用户年龄：</td>
+						<td><span class="STYLE1" th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}">2014-10-10</span>
+					</tr>
+					<tr>
+						<td class="field">用户电话：</td>
+						<td>[[${user.phone}]]
+						</td>
+
+					</tr>
+					<tr>
+						<td class="field">用户地址：</td>
+						<td>[[${user.address}]]
+						</td>
+					</tr>
+					<tr>
+						<td class="field">用户权限：</td>
+
+						<td>
+
+							[[${user.userType}]]
+							
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<div class="buttons">
+				<input type="button" id="update" value="修改" class="input-button">
+				<input type="button" id="del" value="删除" class="input-button"> 
+				<input type="button" id="repassword" value="重置密码" class="input-button"> 
+				<input type="button" id="backButton" th:onclick="history.back(-1)" value="返回" class="input-button">
+			</div>
+	</div>
+	<script type="text/javascript" th:src="@{/js/user/view.js}"></script>
+
+
+</body></html>

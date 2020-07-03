@@ -1,0 +1,73 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>超市账单管理系统-用户管理</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="menu">
+		<table>
+			<tbody>
+				<tr>
+					<td><form method="post" th:action="@{/user/findLike}">
+							<input name="method" value="query" class="input-text" type="hidden"> 用户名：<input th:name="userName" class="input-text" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input value="查 询" type="submit">
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="main">
+		<div class="optitle clearfix">
+			<em><input value="添加用户" class="input-button" onclick="window.location='/user/toUserAdd'" type="button">
+			</em>
+			<div class="title">用户管理&gt;&gt;</div>
+		</div>
+		<div class="content">
+			<table class="list">
+				<tbody>
+					<tr>
+						<td width="70" height="29"><div class="STYLE1" align="center">编号</div>
+						</td>
+						<td width="80"><div class="STYLE1" align="center">用户名</div>
+						</td>
+						<td width="80"><div class="STYLE1" align="center">用户编码</div>
+						</td>
+						<td width="100"><div class="STYLE1" align="center">性别</div>
+						</td>
+						<td width="100"><div class="STYLE1" align="center">年龄</div>
+						</td>
+						<td width="150"><div class="STYLE1" align="center">电话</div>
+						</td>
+						<td width="150"><div class="STYLE1" align="center">权限</div>
+						</td>
+					</tr>
+					<tr th:each="userss:${users}">
+						<td height="23"><span class="STYLE1" th:text="${userss.id}">-1</span>
+						</td>
+						<td><span class="STYLE1"><a th:href="@{/user/toUserView/}+${userss.id}"> [[${userss.userName}]]</a>
+						</span>
+						</td>
+						<td><span class="STYLE1" th:text="${userss.userCode}"> 管理员 </span>
+						</td>
+						<td><span class="STYLE1" th:text="${userss.gender}==1?'男':'女'">
+							男
+						</span>
+						</td>
+						<td><span class="STYLE1" th:text="${#dates.format(userss.birthday, 'yyyy-MM-dd')}">2014-10-10</span>
+						</td>
+						<td><span class="STYLE1" th:text="${userss.phone}">323232</span>
+						</td>
+						<td>
+							<span class="STYLE1" th:text="${userss.userType}">
+							管理员
+					     </span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

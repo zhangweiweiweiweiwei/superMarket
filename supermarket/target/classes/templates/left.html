@@ -1,0 +1,39 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>超市账单管理系统</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript">
+	function logout() {
+		// 在顶层开启新网页
+		top.location = "/login";
+	}
+</script>
+</head>
+<body class="frame-bd">
+	<ul class="left-menu">
+		<li><a th:href="@{/toBillList}" target="mainFrame"><img
+				th:src="@{/images/btn_bill.gif}" />
+		</a>
+		</li>
+		<li><a th:href="@{/toProviderList}" target="mainFrame"><img
+				th:src="@{/images/btn_suppliers.gif}" />
+		</a>
+		</li>
+		<li><a th:href="@{/toUserlist}" target="mainFrame"><img
+				th:src="@{/images/btn_users.gif}" />
+		</a>
+		</li>	
+		<li><a th:href="@{/toUpdatePwd}" target="mainFrame"><img
+				th:src="@{/images/btn_password.gif}" />
+		</a>
+		</li>
+		<li><a href="" onClick="logout();"><img
+				th:src="@{/images/btn_exit.gif}" />
+		</a>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>系统登录 - 超市账单管理系统</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+<script type="text/javascript">
+
+  function validate(){
+		window.location.href="frame.html"
+	}
+  </script>
+</head>
+<body class="blue-style">
+<div id="login">
+	<div class="icon"></div>
+	<div class="login-box">
+		<form  th:action="@{/login}"  name="actionForm" id="actionForm"  method="post" >
+			<dl>
+				<dt>用户名：</dt>
+				<dd><input type="text" name="userName" class="input-text" /> <span id="loginNameSpan" >[[${error}]]</span></dd>
+				<dt>密　码：</dt>
+				<dd><input type="password" name="userPassword" class="input-text" /><span id="passwordSpan"></span></dd>
+			</dl>
+			<div class="buttons">
+				<input type="submit"   value="登录系统" class="input-button" />
+				<input type="reset"  value="重　　填" class="input-button" />
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

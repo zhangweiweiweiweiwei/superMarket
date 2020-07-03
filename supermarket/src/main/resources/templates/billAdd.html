@@ -1,0 +1,61 @@
+﻿<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+<script type="text/javascript" th:src="@{/js/jquery-1.8.3.min.js}"></script>
+</head>
+<body>
+<div class="main">
+	<div class="optitle clearfix">
+		<div class="title">账单管理&gt;&gt;</div>
+	</div>
+<!--	到/bill/add-->
+	<form id="form1" name="form1" method="post" th:action="@{/bill/add}">
+		<input type="hidden" name="method" value="add">
+		<div class="content">
+			<table class="box">
+			   <tbody><tr>
+					<td class="field">商品名称：</td>
+					<td><input type="text" th:name="productName" class="text" id="productName" value=""> <font color="red">*</font><font color="red" id="productName_span"></font></td>
+				</tr>
+				 <tr>
+					<td class="field">商品单位：</td>
+					<td><input type="text" th:name="productUnit" class="text" id="productUnit" value=""> <font color="red">*</font><font color="red" id="productUnit_span"></font></td>
+				</tr>
+				<tr>
+					<td class="field">商品数量：</td>
+					<td><input type="text" th:name="productCount" class="text" id="productCount" value=""> <font color="red">*</font><font color="red" id="productCount_span"></font></td>
+				</tr>
+				<tr>
+					<td class="field">总额：</td>
+					<td><input type="text" th:name="totalPrice" id="billMoney" class="text" value=""><font color="red">*</font><font color="red" id="billMoney_span"></font></td>
+				</tr>
+			   <tr>
+					<td class="field">供应商：</td>
+					<td>
+						<select th:name="providerId" id="proId">
+<!--							     对bills循环option操作，显示添加页面时获取所有供应商信息，循环遍历-->
+								<option value="1" th:value="${bills.providerId}" th:text="${bills.proName}" th:each="bills:${bills}">北京市粮油总公司</option>
+							
+						</select>
+						<font color="red">*</font><font color="red" id="proId_span"></font>
+					</td>
+				</tr>
+				 <tr>
+					<td class="field">是否付款：</td>
+					<td><input type="radio" th:name="isPayment" th:value="1">是<input type="radio" name="isPayment" checked="" th:value="0">否</td>
+				</tr>
+			</tbody></table>
+		</div>
+		<div class="buttons">
+			<input type="button" name="add" id="add" value="保存" class="input-button">
+			<input type="button" name="button" id="button" th:onclick="history.back(-1)" value="返回" class="input-button">
+		</div>
+
+	</form>
+</div>
+<script type="text/javascript" th:src="@{/js/bill/add.js}"></script>
+
+
+</body></html>
